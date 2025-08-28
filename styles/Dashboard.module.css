@@ -1,0 +1,95 @@
+.container{
+    display: flex;
+    column-gap: 70px;
+}
+.sidebar {
+    width: 280px;
+    min-height: 100vb;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+
+.header {
+    padding: 20px 0;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    justify-content: center;
+}
+
+.iconlogo {
+    width: 30px;
+    height: 30px;
+
+}
+
+.imglogo {
+   width:103px;
+   height: 20px;
+}
+
+
+.nav {
+    flex: 1;
+    padding: 16px 0;
+}
+
+.navItem {
+    padding: 8px 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #000;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.2s ease;
+    position: relative;
+}
+.navText{
+    font-size: 16px;
+    font-weight: 400;
+
+}
+.footer {
+    padding: 16px 20px;
+    border-top: 1px solid #e9ecef;
+}
+.welcomeSection{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+.logout__btn{
+    display: none;
+}
+@media (min-width:0px) and (max-width:600px) {
+    .sidebar{
+        display: none;
+    }
+    .welcomeSection{
+        margin: 170px auto;
+    }
+    .welcomeSection h2{
+        font-size: 17px ;
+        margin: auto;
+    }
+    .welcomeSection p{
+        font-size: 12px;
+        margin: 10px 0;
+    }
+    .welcomeSection span{
+        font-size: 12px;
+    }
+    .logout__btn{
+        display: block;
+        margin: 20px 0;
+    }
+}
