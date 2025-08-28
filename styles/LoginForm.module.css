@@ -146,5 +146,8 @@ margin: auto;
 .header{
     margin-top: 50px;
 }
+.blob{
+    display: none;
+}
 }
 
