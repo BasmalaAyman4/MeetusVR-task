@@ -145,7 +145,7 @@ margin: auto;
     }
 
     .title {
-        font-size: 2.5rem;
+        font-size: 30px;
     }
 .logoContainer img{
     width: 100%;
@@ -157,5 +157,19 @@ margin: auto;
 .blob{
     display: none;
 }
+
+}
+@media (min-width:600px) and (max-width:900px) {
+    .form{
+width: 100%;
+justify-content: center;
+max-width: 50%;
+margin: auto;
+    }
 }
 
+@media (min-width:900px) and (max-width:1200px) {
+    .title {
+            font-size: 45px;
+        }
+}

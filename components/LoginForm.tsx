@@ -15,6 +15,8 @@ import meetusVR from '@/public/images/meetusVR.png'
 
 export function LoginForm() {
     const router = useRouter();
+    const [emailError, setEmailError] = useState('');
+
     const { login, error: authError, clearError } = useAuthStore();
 
     const {
@@ -31,12 +33,20 @@ export function LoginForm() {
         e: React.ChangeEvent<HTMLInputElement>
     ) => {
         setFormData(prev => ({ ...prev, [field]: e.target.value }));
+        
     };
-
+    const handleEmailBlur = () => {
+        if (formData.email && !validateEmail(formData.email)) {
+            setEmailError('Please enter a valid email');
+        } else {
+            setEmailError('');
+        }
+    };
 
     useEffect(() => {
         if(formData.email=='' && formData.password=='')
         clearError();
+        setEmailError('');
     }, [clearError, formData.email, formData.password]); 
    
   
@@ -101,6 +111,7 @@ export function LoginForm() {
                             label="Email"
                             value={formData.email}
                             onChange={handleInputChange('email')}
+                            onBlur={handleEmailBlur}
                             icon={<Sms size={20} color="#333" variant="Outline" />}
                             disabled={isSubmitting}
                             required
@@ -126,7 +137,16 @@ export function LoginForm() {
                                 {showPassword ? <EyeSlash size={20} color="#333" variant="Outline" /> : <Eye size={20} color="#333" variant="Outline" />}
                             </button>
                         </div>
-
+                        {emailError && (
+                            <motion.div
+                                className={styles.generalError}
+                                initial={{ opacity: 0, scale: 0.95 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                                transition={{ duration: 0.3 }}
+                            >
+                                {emailError}
+                            </motion.div>
+                        )}
                         { authError && (
                             <motion.div
                                 className={styles.generalError}
